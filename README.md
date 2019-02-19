@@ -26,6 +26,7 @@ Flask Framework
 sqlalchemy
 
 
+
 Installation
 
 There are some dependancies and a few instructions on how to run the application. Seperate instructions are provided to get GConnect working also.
@@ -38,6 +39,7 @@ Vagrant
 Udacity Vagrantfile
 
 VirtualBox
+
 
 
 How to Install
@@ -101,6 +103,7 @@ Run application using python/institute/final.py
 
 JSON Endpoints
 
+
 The following are open to the public:
 
 InstitutesJSON: /institute/JSON - Displays the all instiutes catalog. Institutes and all courses.
@@ -108,6 +111,7 @@ InstitutesJSON: /institute/JSON - Displays the all instiutes catalog. Institutes
 courseJSON: /institute/<int:institute_id>/menu/JSON- Displays menus of specific Institute. 
 
 courenamesJSON:/institute/<int:institute_id>/menu/<int:course_id>/JSON- Displays the menu of specific institute in institutes.
+
 
 
 Miscellaneous
