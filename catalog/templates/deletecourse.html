@@ -1,0 +1,23 @@
+{% include 'nav.html' %}
+{% block content %}
+<style>
+input[type=submit] {
+  background-color:red ;
+  color: white;
+  padding: 10px 10px;
+  margin: 8px 0;
+  border: none;
+  border-radius:2px;
+  cursor: pointer;
+  font-size:20px;
+}
+</style>
+<h1 style="margin-left: 350px;">Are You Sure You Want to Deletecourse <h style="color: pink; margin-top: 50px;"> {{item.name}} </h> ? </h1>
+
+<form action="{{url_for('deletecourse',institute_id=institute_id,course_id=item.id)}}" method='POST'>
+<input type="submit" value='delete' style="margin-left: 350px;" >
+
+</form>
+<br>
+<a style="color:orange; font-size: 200%;margin-left: 350px; "  href="{{url_for('courses',institute_id=institute_id)}}">cancel</a>
+{% endblock content %}

@@ -1,0 +1,10 @@
+{%include 'nav.html'%}
+{% block content %}
+<h1 style="margin-top: 100px;margin-left: 350px;">Are You Sure You Want to Delete institute <h style="color: pink; margin-top: 50px;"> {{item.name}} </h>? </h1>
+
+<form action="{{url_for('deleteinstitute',institute_id=item.id)}}" method='POST'>
+<input type='submit' value='delete' style="font-size: 20px; background-color: yellow;margin-left: 350px;">
+</form>
+<br>
+<a href="{{url_for('courses',institute_id=institute_id)}}"><button type="button" class="btn btn-danger" style="font-size: 20px; margin-left: 350px;">cancel</button></a>
+{% endblock content %}

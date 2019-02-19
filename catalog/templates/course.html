@@ -1,0 +1,67 @@
+{% include 'nav.html' %}
+{% block content %}
+<style>
+.themeBtn3 {
+    background: #ff2e4d;
+    display: inline-block;
+    font-size: 15px;
+    font-weight: 500;
+    height: 40px;
+    line-height: 0.8;
+    padding: 15px 15px;
+    text-transform: capitalize;
+    border-radius: 1px;
+    letter-spacing: 0.5px;
+  cursor:pointer;
+  border-radius:100px;
+}
+a.line,h1.line{
+  display: inline;
+}
+</style>
+<div style="margin-left: 350px;">
+<h1 class="line">{{institute.name}}</h1>
+{% if 'username' in session %}
+<button type="button" class="btn btn-info" style="margin-left: 20px;"><a class="line" href="{{url_for('editinstitute',institute_id=institute.id)}}"><span class="glyphicon glyphicon-edit"> Edit</a>
+</button>
+<button type="button" class="btn btn-warning"><a class="line" href="{{url_for('deleteinstitute',institute_id=institute.id)}}"><span class="glyphicon glyphicon-trash"> Delete</a></button>
+{% endif %}
+<div class="container-fluid margin">
+<table class="table" style="margin-top: 50px;">
+<thead>
+<tr>
+<td>
+<h2 style="color:fuchsia;margin-left:100px;">Courses offered</h2></td>
+<td></td>
+<td></td>
+{% if 'username' in session %}
+<td><a href="{{url_for('newcourse',institute_id=institute.id)}}" class="themeBtn3" style="text-decoration: none;">add newcourse</a></td>
+{% endif %}
+{% for i in item %}
+</tr>
+</thead>
+</table>
+</div>
+<div class="container" style="width: 70%;">
+  <div class="panel panel-primary" style="color:blue;margin-bottom:50px;">
+    <div class="panel-heading" style="font-size:30px;">{{i.name}}</div>
+    <div class="panel-body" style="font-size:20px;">
+<p style="color: red;">prof.{{i.instructor}}</p>
+<br>
+<p>{{i.department}}</p>
+<br>
+<p>{{i.duration}} week course</p>
+<br>
+{% if 'username' in session %}
+<a href="{{url_for('editcourse',institute_id=institute.id,course_id=i.id)}}" class="btn btn-primary a-btn-slide-text">
+        <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+        <span><strong>Edit</strong></span></a>
+<a href="{{url_for('deletecourse',institute_id=institute.id,course_id=i.id)}}" class="btn btn-success a-btn-slide-text">
+       <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+        <span><strong>Delete</strong></span></a>
+{% endif %}
+  </div>
+</div>
+{% endfor %}
+</div>
+{% endblock content %}

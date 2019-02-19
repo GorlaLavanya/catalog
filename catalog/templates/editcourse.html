@@ -1,0 +1,38 @@
+{% include 'nav.html' %}
+{% block content %}
+<style>
+input[type=text] {
+  padding: 8px 8px;
+  border: 1px solid navy;
+  width: 50%;
+  font-size:20px;
+}
+input[type=submit]{
+  background-color:rgb(0,0,225);
+  color: white;
+  padding: 10px 10px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size:20px;
+}
+
+</style>
+<div style="margin-left: 350px; margin-top: 1px; color: dodgerblue;font-size: 30px;">
+<form action="{{ url_for('editcourse',institute_id=institute_id,course_id=item.id) }}" style=" display:inline-form"  method='POST'>
+<p>course_id:</p>
+<input type='text'  size='10' name='id'>
+<p>CourseName:</p>
+<input type="text"  size='50' name='name' placeholder="{{item.name}}">
+<p>instructor:</p>
+<input type='text' size='30'  name='instructor'>
+<p>Department:</p>
+<input type="text" size='50' name='department'>
+<p>Duration:</p>
+<input type="text" size='20' name='duration' >
+<input type='submit' value='edit'>
+</form>
+<a  style="color:Darkred;font-size: 20px;" href='{{url_for('courses',institute_id=institute_id)}}'>cancel</a>
+</div>
+{% endblock content %}

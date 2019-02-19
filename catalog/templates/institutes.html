@@ -1,0 +1,13 @@
+{% include 'nav.html' %}
+{%  block content %}
+{% if 'username' in session %}
+<div style="color: darkblue;font-size:25px;margin-left: 350px;">
+<h1 style="color:rgb(0,0,225);">About Us</h1>
+<p>Talentedge is an Ed-Tech firm. We are the first to bring ‘Interactive’ anywhere learning in digital format.</p>
+<div>
+<img  style="border:1px solid navy;width:50%;" src="https://mk0digitallearnckr23.kinstacdn.com/wp-content/uploads/2016/08/15_10_2013_21_29_26_70qmqde14beehdgc88gaaus9l5_4127otlhuy.jpg">
+</div>
+{% endif %}
+</div>
+{% endblock content %}
+
